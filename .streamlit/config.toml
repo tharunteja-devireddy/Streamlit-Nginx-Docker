@@ -1,0 +1,13 @@
+#.streamlit/config.toml
+[client]
+showErrorDetails = false
+
+[theme]
+primaryColor="#2D7A9E"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F3F5"
+font="sans serif"
+
+[server]
+headless = true
+
