@@ -1,10 +1,5 @@
-FROM python:3.8-slim-buster
+ssl
 
-WORKDIR /usr/src/app
-COPY . .
-
-RUN pip install --upgrade pip \
-    && pip install -r requirements.txt
 
 # Set default environment to 'dev' and default port on which each container runs to 8501
 ENV ENV_TYPE='dev'

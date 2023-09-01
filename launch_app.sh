@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Running launch_app.sh"
-echo "Environment: $ENV_TYPE"
-echo "Port: $PORT"
+echo "Environment : $ENV_TYPE"
+echo "Port        : $PORT"
 
 # Launch the Streamlit app
 streamlit run app.py --server.port "$PORT"
