@@ -1,5 +1,16 @@
-ssl
+FROM python:3.8-slim-buster
 
+
+WORKDIR /usr/src/app
+COPY . .
+RUN chmod -R 777 /usr/src/app
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+# Set timezone of the container to Asia/Kolkata
+RUN apt-get update && apt-get install -y tzdata
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Set default environment to 'dev' and default port on which each container runs to 8501
 ENV ENV_TYPE='dev'
@@ -9,8 +20,3 @@ RUN echo "env: $ENV_TYPE , rootpath: $ROOT_PATH ,port: $PORT"
 
 
 ENTRYPOINT ["./launch_app.sh"]
-# EXPOSE 8501
-# ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-
-# sudo docker build --tag coops:v1 ./
-# sudo docker container run -e ENV_TYPE='stage'  -p 80:8501  -d --name copcon_stage_1 coops:v1
