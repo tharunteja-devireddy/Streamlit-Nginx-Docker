@@ -1,3 +1,21 @@
 /venv/
 **/*.env
 /docs/
+
+# Secrets
+.env*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+ssl_cert/
+
+# IDE / OS / Python
+.idea/
+.vscode/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
